@@ -1,0 +1,8 @@
+# Robots.txt for onlineworksheetsforkidss
+User-agent: *
+Allow: /
+Disallow: /api/admin/
+Disallow: /#admin
+
+# Sitemaps
+Sitemap: https://onlineworksheetsforkidss.com/sitemap.xml

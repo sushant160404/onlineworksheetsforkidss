@@ -1,0 +1,229 @@
+{
+  "users": [
+    {
+      "_id": "admin-super-1",
+      "username": "admin",
+      "email": "admin@wonderkids.edu",
+      "role": "admin",
+      "avatar": "owl",
+      "grade": "5th Grade",
+      "totalXP": 9999,
+      "level": 25,
+      "stars": 500,
+      "streakDays": 30,
+      "badges": [
+        "welcome_adventurer",
+        "first_game",
+        "math_whiz",
+        "star_collector"
+      ],
+      "createdAt": "2026-09-07T09:46:26.556Z"
+    },
+    {
+      "_id": "demo-student-1",
+      "username": "StarExplorer Leo",
+      "role": "student",
+      "avatar": "lion",
+      "grade": "1st Grade",
+      "totalXP": 450,
+      "level": 3,
+      "stars": 48,
+      "streakDays": 4,
+      "badges": [
+        "first_game",
+        "math_star",
+        "curious_learner"
+      ],
+      "createdAt": "2026-09-07T08:18:20.986Z"
+    },
+    {
+      "_id": "user_sophia",
+      "username": "Sophia MathWiz",
+      "role": "student",
+      "avatar": "unicorn",
+      "grade": "2nd Grade",
+      "totalXP": 1420,
+      "level": 7,
+      "stars": 124,
+      "streakDays": 8,
+      "badges": [
+        "welcome_adventurer",
+        "first_game",
+        "perfect_score",
+        "star_collector",
+        "math_whiz"
+      ],
+      "createdAt": "2026-09-07T08:18:44.784Z"
+    },
+    {
+      "_id": "user_noah",
+      "username": "Noah DinoRacer",
+      "role": "student",
+      "avatar": "dino",
+      "grade": "1st Grade",
+      "totalXP": 980,
+      "level": 5,
+      "stars": 86,
+      "streakDays": 5,
+      "badges": [
+        "welcome_adventurer",
+        "first_game",
+        "turbo_typer",
+        "word_wizard"
+      ],
+      "createdAt": "2026-09-07T08:18:44.784Z"
+    },
+    {
+      "_id": "user_maya",
+      "username": "Maya AstroGirl",
+      "role": "student",
+      "avatar": "astronaut",
+      "grade": "3rd Grade",
+      "totalXP": 1850,
+      "level": 9,
+      "stars": 160,
+      "streakDays": 14,
+      "badges": [
+        "welcome_adventurer",
+        "first_game",
+        "perfect_score",
+        "star_collector",
+        "math_whiz",
+        "word_wizard",
+        "turbo_typer"
+      ],
+      "createdAt": "2026-09-07T08:18:44.784Z"
+    },
+    {
+      "_id": "user_1788769135965_b6t6l",
+      "username": "SuperTommy",
+      "passwordHash": "$2b$10$kHdUpRi.ETbMGv15PoYbKOPeLWzyFKCUllswMmm8sFpM.0YrBlEdC",
+      "role": "student",
+      "avatar": "robot",
+      "grade": "Kindergarten",
+      "totalXP": 250,
+      "level": 2,
+      "stars": 8,
+      "streakDays": 1,
+      "badges": [
+        "welcome_adventurer",
+        "first_game",
+        "perfect_score",
+        "math_whiz"
+      ],
+      "createdAt": "2026-09-07T08:18:55.965Z"
+    },
+    {
+      "_id": "guest_1788774387372",
+      "username": "Explorer_425",
+      "role": "student",
+      "avatar": "lion",
+      "grade": "Kindergarten",
+      "totalXP": 50,
+      "level": 1,
+      "stars": 3,
+      "streakDays": 1,
+      "badges": [
+        "welcome_adventurer"
+      ],
+      "createdAt": "2026-09-07T09:46:27.372Z"
+    }
+  ],
+  "game_sessions": [
+    {
+      "_id": "gs_1788769141495_ytym",
+      "userId": "user_1788769135965_b6t6l",
+      "worksheetId": "math-k-count-safari",
+      "worksheetTitle": "Safari Animal Counting & Quantities",
+      "subject": "Math",
+      "grade": "Kindergarten",
+      "score": 5,
+      "maxScore": 5,
+      "accuracy": 100,
+      "starsEarned": 3,
+      "xpEarned": 150,
+      "timeSpentSec": 28,
+      "completedAt": "2026-09-07T08:19:01.496Z"
+    },
+    {
+      "_id": "session-demo-1",
+      "userId": "demo-student-1",
+      "worksheetId": "math-1-addition-quest",
+      "worksheetTitle": "Magical Addition Forest (Within 20)",
+      "subject": "Math",
+      "grade": "1st Grade",
+      "score": 5,
+      "maxScore": 5,
+      "accuracy": 100,
+      "starsEarned": 3,
+      "xpEarned": 100,
+      "timeSpentSec": 42,
+      "completedAt": "2026-09-07T06:18:20.986Z"
+    },
+    {
+      "_id": "session-demo-2",
+      "userId": "demo-student-1",
+      "worksheetId": "la-1-spelling-safari",
+      "worksheetTitle": "Word Wizard Spelling Safari",
+      "subject": "Language Arts",
+      "grade": "1st Grade",
+      "score": 4,
+      "maxScore": 5,
+      "accuracy": 80,
+      "starsEarned": 2,
+      "xpEarned": 80,
+      "timeSpentSec": 58,
+      "completedAt": "2026-09-06T08:18:20.986Z"
+    }
+  ],
+  "progress_tracking": [
+    {
+      "userId": "demo-student-1",
+      "subject": "Math",
+      "accuracy": 100,
+      "completedCount": 4,
+      "stars": 12
+    },
+    {
+      "userId": "demo-student-1",
+      "subject": "Language Arts",
+      "accuracy": 85,
+      "completedCount": 3,
+      "stars": 8
+    },
+    {
+      "userId": "demo-student-1",
+      "subject": "Science",
+      "accuracy": 90,
+      "completedCount": 2,
+      "stars": 6
+    },
+    {
+      "userId": "demo-student-1",
+      "subject": "Typing",
+      "accuracy": 95,
+      "completedCount": 3,
+      "stars": 9
+    }
+  ],
+  "worksheet_records": [],
+  "achievements": [
+    {
+      "userId": "demo-student-1",
+      "badgeId": "first_game",
+      "title": "First Step Champion",
+      "icon": "🌟",
+      "unlockedAt": "2026-09-05T08:18:20.986Z"
+    },
+    {
+      "userId": "demo-student-1",
+      "badgeId": "math_star",
+      "title": "Math Magician",
+      "icon": "🪄",
+      "unlockedAt": "2026-09-07T06:18:20.986Z"
+    }
+  ],
+  "worksheets": [],
+  "custom_tables": {},
+  "custom_tables_meta": []
+}
