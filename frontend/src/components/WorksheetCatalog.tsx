@@ -67,14 +67,15 @@ export const WorksheetCatalog: React.FC<WorksheetCatalogProps> = ({
       if (selectedFormat === 'printable' && !w.isPrintable) {
         return false;
       }
-      // Search query
+      // Search query - improved matching with description field
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase();
         const matchesTitle = w.title.toLowerCase().includes(q);
         const matchesTopic = w.topic.toLowerCase().includes(q);
+        const matchesDescription = w.description.toLowerCase().includes(q);
         const matchesSubject = w.subject.toLowerCase().includes(q);
         const matchesGrade = w.grade.toLowerCase().includes(q);
-        return matchesTitle || matchesTopic || matchesSubject || matchesGrade;
+        return matchesTitle || matchesTopic || matchesDescription || matchesSubject || matchesGrade;
       }
       return true;
     });
@@ -138,7 +139,7 @@ export const WorksheetCatalog: React.FC<WorksheetCatalogProps> = ({
                 onClick={() => {
                   soundFX.pop();
                   setSelectedSubject(subj);
-                  setDisplayLimit(24);
+                  setDisplayLimit(24); // Reset pagination when changing filters
                 }}
                 className={`px-3.5 py-2 rounded-2xl text-xs font-bold transition-all active:scale-95 flex items-center gap-1.5 font-['Fredoka',sans-serif] ${
                   isSelected
@@ -164,6 +165,7 @@ export const WorksheetCatalog: React.FC<WorksheetCatalogProps> = ({
                   onClick={() => {
                     soundFX.pop();
                     setSelectedDifficulty(diff);
+                    setDisplayLimit(24); // Reset pagination when changing filters
                   }}
                   className={`px-2.5 py-1 rounded-lg transition-colors ${
                     selectedDifficulty === diff
@@ -181,7 +183,10 @@ export const WorksheetCatalog: React.FC<WorksheetCatalogProps> = ({
             <div className="flex items-center gap-1.5">
               <span className="text-gray-400">Type:</span>
               <button
-                onClick={() => setSelectedFormat('All')}
+                onClick={() => {
+                  setSelectedFormat('All');
+                  setDisplayLimit(24); // Reset pagination when changing filters
+                }}
                 className={`px-2.5 py-1 rounded-lg transition-colors ${
                   selectedFormat === 'All' ? 'bg-purple-100 text-purple-900 font-bold' : 'hover:bg-gray-100'
                 }`}
@@ -189,7 +194,10 @@ export const WorksheetCatalog: React.FC<WorksheetCatalogProps> = ({
                 All Formats
               </button>
               <button
-                onClick={() => setSelectedFormat('printable')}
+                onClick={() => {
+                  setSelectedFormat('printable');
+                  setDisplayLimit(24); // Reset pagination when changing filters
+                }}
                 className={`px-2.5 py-1 rounded-lg transition-colors ${
                   selectedFormat === 'printable' ? 'bg-purple-100 text-purple-900 font-bold' : 'hover:bg-gray-100'
                 }`}
