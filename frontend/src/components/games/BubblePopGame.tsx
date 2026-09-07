@@ -157,30 +157,31 @@ export const BubblePopGame: React.FC<BubblePopGameProps> = ({
 
   return (
     <div id="bubble-pop-modal" className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-xs p-4">
-      <div className="relative w-full max-w-2xl bg-gradient-to-b from-sky-300 via-indigo-200 to-purple-200 rounded-3xl shadow-2xl border-4 border-cyan-200 overflow-hidden flex flex-col h-[620px]">
+      <div className="relative w-full max-w-2xl bg-gradient-to-b from-sky-300 via-indigo-200 to-purple-200 rounded-3xl shadow-2xl border-4 border-cyan-200 overflow-hidden flex flex-col h-[90vh] sm:h-[620px] max-h-[90vh]">
         {/* Header */}
-        <div className="bg-white/80 backdrop-blur-md px-5 py-3 flex items-center justify-between border-b border-white/50">
-          <div className="flex items-center gap-2">
-            <span className="text-2xl">🫧</span>
-            <div>
-              <h3 className="font-bold text-gray-800 text-base sm:text-lg font-['Fredoka',sans-serif]">
+        <div className="bg-white/80 backdrop-blur-md px-3 sm:px-5 py-2 sm:py-3 flex items-center justify-between border-b border-white/50 gap-2 flex-wrap">
+          <div className="flex items-center gap-2 min-w-0 flex-1">
+            <span className="text-lg sm:text-2xl flex-shrink-0">🫧</span>
+            <div className="min-w-0">
+              <h3 className="font-bold text-gray-800 text-xs sm:text-base lg:text-lg font-['Fredoka',sans-serif] truncate">
                 Bubble Pop Arcade: {game.title}
               </h3>
-              <p className="text-xs text-gray-500 font-medium">Round {currentRound + 1} of {game.questions.length}</p>
+              <p className="text-[10px] sm:text-xs text-gray-500 font-medium">Round {currentRound + 1} of {game.questions.length}</p>
             </div>
           </div>
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-1.5 bg-amber-100 text-amber-800 font-bold px-3 py-1 rounded-full text-xs">
-              <Star className="w-4 h-4 fill-amber-400 text-amber-500" />
-              <span>Score: {score}</span>
+          <div className="flex items-center gap-1.5 sm:gap-3 flex-shrink-0 flex-wrap justify-end">
+            <div className="flex items-center gap-1 bg-amber-100 text-amber-800 font-bold px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs whitespace-nowrap">
+              <Star className="w-3 h-3 sm:w-4 sm:h-4 fill-amber-400 text-amber-500 flex-shrink-0" />
+              <span className="hidden sm:inline">Score: </span>
+              <span>{score}</span>
             </div>
-            <div className="flex items-center gap-1.5 bg-cyan-100 text-cyan-800 font-bold px-3 py-1 rounded-full text-xs">
-              <Clock className="w-4 h-4 text-cyan-600" />
+            <div className="flex items-center gap-1 bg-cyan-100 text-cyan-800 font-bold px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs whitespace-nowrap">
+              <Clock className="w-3 h-3 sm:w-4 sm:h-4 text-cyan-600 flex-shrink-0" />
               <span>{timeLeft}s</span>
             </div>
             <button
               onClick={onClose}
-              className="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold flex items-center justify-center"
+              className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold flex items-center justify-center flex-shrink-0"
             >
               ✕
             </button>
@@ -189,68 +190,71 @@ export const BubblePopGame: React.FC<BubblePopGameProps> = ({
 
         {/* Game play area */}
         {!isFinished ? (
-          <div className="relative flex-1 flex flex-col justify-between p-6 select-none overflow-hidden">
+          <div className="relative flex-1 flex flex-col justify-between p-3 sm:p-6 select-none overflow-hidden">
             {/* Target equation or prompt banner */}
-            <div className="bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-lg border-2 border-white/70 text-center max-w-md mx-auto w-full">
-              <p className="text-xs font-bold text-indigo-600 uppercase tracking-wider">🎯 Pop the Bubble with Correct Answer!</p>
-              <h2 className="text-2xl sm:text-3xl font-black text-gray-800 font-['Fredoka',sans-serif] mt-1">
+            <div className="bg-white/90 backdrop-blur-md rounded-2xl p-2 sm:p-4 shadow-lg border-2 border-white/70 text-center max-w-md mx-auto w-full">
+              <p className="text-[10px] sm:text-xs font-bold text-indigo-600 uppercase tracking-wider">🎯 Pop the Bubble with Correct Answer!</p>
+              <h2 className="text-lg sm:text-2xl md:text-3xl font-black text-gray-800 font-['Fredoka',sans-serif] mt-1 line-clamp-2">
                 {currentQ.prompt}
               </h2>
             </div>
 
             {/* Floating bubbles zone */}
-            <div className="relative h-72 w-full">
-              {bubbles.map((b) => (
-                <button
-                  key={b.id}
-                  onClick={() => handlePop(b)}
-                  disabled={b.popped}
-                  style={{
-                    left: `${b.x}%`,
-                    width: `${b.size}px`,
-                    height: `${b.size}px`
-                  }}
-                  className={`absolute bottom-6 transform -translate-x-1/2 rounded-full border-4 text-white font-black text-lg sm:text-xl flex items-center justify-center shadow-lg transition-all duration-300 active:scale-90 hover:scale-110 cursor-pointer animate-pulse ${
-                    b.popped ? 'scale-0 opacity-0 pointer-events-none' : b.color
-                  }`}
-                >
-                  <span className="drop-shadow-md">{b.text}</span>
-                </button>
-              ))}
+            <div className="relative flex-1 min-h-32 w-full">
+              {bubbles.map((b) => {
+                const scaledSize = Math.max(48, Math.min(88, b.size));
+                return (
+                  <button
+                    key={b.id}
+                    onClick={() => handlePop(b)}
+                    disabled={b.popped}
+                    style={{
+                      left: `${b.x}%`,
+                      width: `${scaledSize}px`,
+                      height: `${scaledSize}px`
+                    }}
+                    className={`absolute bottom-2 sm:bottom-6 transform -translate-x-1/2 rounded-full border-4 text-white font-black text-xs sm:text-lg md:text-xl flex items-center justify-center shadow-lg transition-all duration-300 active:scale-90 hover:scale-110 cursor-pointer animate-pulse ${
+                      b.popped ? 'scale-0 opacity-0 pointer-events-none' : b.color
+                    }`}
+                  >
+                    <span className="drop-shadow-md text-[10px] sm:text-xs md:text-sm">{b.text}</span>
+                  </button>
+                );
+              })}
             </div>
 
             {/* Bottom info */}
-            <div className="text-center text-xs font-bold text-indigo-900 bg-white/60 backdrop-blur-xs py-2 px-4 rounded-xl mx-auto">
-              {streak > 1 && <span className="text-amber-600 font-extrabold mr-2">🔥 {streak}x Combo Streak!</span>}
-              <span>Tap bubbles before they float away!</span>
+            <div className="text-center text-[10px] sm:text-xs font-bold text-indigo-900 bg-white/60 backdrop-blur-xs py-1.5 sm:py-2 px-2 sm:px-4 rounded-xl mx-auto">
+              {streak > 1 && <span className="text-amber-600 font-extrabold mr-2 block sm:inline">🔥 {streak}x Streak!</span>}
+              <span className="block sm:inline">Tap bubbles before they float away!</span>
             </div>
           </div>
         ) : (
           /* Victory Screen */
-          <div className="flex-1 flex flex-col items-center justify-center p-8 text-center bg-white/95 space-y-5">
-            <div className="w-20 h-20 rounded-full bg-amber-100 border-4 border-amber-300 flex items-center justify-center text-4xl shadow-lg animate-bounce">
+          <div className="flex-1 flex flex-col items-center justify-center p-4 sm:p-8 text-center bg-white/95 space-y-3 sm:space-y-5 overflow-y-auto">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-amber-100 border-4 border-amber-300 flex items-center justify-center text-3xl sm:text-4xl shadow-lg animate-bounce flex-shrink-0">
               🫧
             </div>
-            <div>
-              <h2 className="text-3xl font-black text-gray-900 font-['Fredoka',sans-serif]">Bubble Popping Master!</h2>
-              <p className="text-gray-600 font-medium mt-1">You popped bubbles with lightning-fast accuracy!</p>
+            <div className="min-w-0">
+              <h2 className="text-xl sm:text-3xl font-black text-gray-900 font-['Fredoka',sans-serif]">Bubble Popping Master!</h2>
+              <p className="text-xs sm:text-base text-gray-600 font-medium mt-1">You popped bubbles with lightning-fast accuracy!</p>
             </div>
-            <div className="bg-purple-50 border border-purple-200 rounded-2xl p-4 w-64 text-center">
-              <p className="text-xs text-purple-600 font-bold uppercase">Final Score</p>
-              <p className="text-3xl font-black text-purple-900 font-['Fredoka',sans-serif]">{score} PTS</p>
+            <div className="bg-purple-50 border border-purple-200 rounded-2xl p-3 sm:p-4 w-full max-w-60 text-center">
+              <p className="text-[10px] sm:text-xs text-purple-600 font-bold uppercase">Final Score</p>
+              <p className="text-2xl sm:text-3xl font-black text-purple-900 font-['Fredoka',sans-serif]">{score} PTS</p>
             </div>
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 w-full sm:w-auto justify-center">
               <button
                 onClick={handleRestart}
-                className="px-5 py-2.5 border-2 border-purple-300 hover:bg-purple-50 text-purple-700 font-bold rounded-xl flex items-center gap-2 font-['Fredoka',sans-serif]"
+                className="px-4 sm:px-5 py-2 sm:py-2.5 border-2 border-purple-300 hover:bg-purple-50 text-purple-700 font-bold text-sm rounded-xl flex items-center justify-center gap-2 font-['Fredoka',sans-serif] flex-1 sm:flex-none"
               >
-                <RefreshCw className="w-4 h-4" /> Play Again
+                <RefreshCw className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> <span className="hidden sm:inline">Play Again</span><span className="inline sm:hidden">Retry</span>
               </button>
               <button
                 onClick={onClose}
-                className="px-6 py-2.5 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-xl shadow-md flex items-center gap-2 font-['Fredoka',sans-serif]"
+                className="px-4 sm:px-6 py-2 sm:py-2.5 bg-purple-600 hover:bg-purple-700 text-white font-bold text-sm rounded-xl shadow-md flex items-center justify-center gap-2 font-['Fredoka',sans-serif] flex-1 sm:flex-none"
               >
-                <Trophy className="w-4 h-4" /> Next Game
+                <Trophy className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> Next Game
               </button>
             </div>
           </div>

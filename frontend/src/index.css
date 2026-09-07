@@ -1,1 +1,30 @@
 @import "tailwindcss";
+
+@layer utilities {
+  /* Touch-friendly button sizing for mobile */
+  @media (max-width: 640px) {
+    button {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+
+  /* Responsive container utilities */
+  .container-responsive {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Modal improvements for mobile */
+  @media (max-width: 640px) {
+    .modal-mobile {
+      @apply rounded-2xl;
+    }
+  }
+
+  /* Prevent layout shift on mobile */
+  @media (max-width: 768px) {
+    .navbar-responsive {
+      @apply gap-2;
+    }
+  }
+}
