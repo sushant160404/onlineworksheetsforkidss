@@ -723,6 +723,16 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
               <span className="hidden md:inline">Refresh Data</span>
             </button>
 
+            <button
+              id="admin-inspect-db-tables-btn"
+              onClick={() => setActiveTab('tables')}
+              title="View and manage database tables"
+              className="px-3 py-2 rounded-xl bg-purple-600/20 hover:bg-purple-600/30 text-purple-200 hover:text-purple-100 border border-purple-500/30 transition-all flex items-center gap-1.5 text-xs font-semibold"
+            >
+              <Database className="w-3.5 h-3.5 text-purple-400" />
+              <span className="hidden md:inline">DB Tables</span>
+            </button>
+
             {/* Admin User Chip */}
             {currentUser && (
               <div className="flex items-center gap-2 pl-1.5 pr-3 py-1 rounded-xl bg-slate-800/80 border border-slate-700/80 text-xs">

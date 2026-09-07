@@ -11,7 +11,6 @@ interface NavbarProps {
   onOpenAuth: () => void;
   onOpenProgress: () => void;
   onOpenLeaderboard: () => void;
-  onOpenAdmin: () => void;
   soundEnabled: boolean;
   onToggleSound: () => void;
   searchQuery: string;
@@ -25,7 +24,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenAuth,
   onOpenProgress,
   onOpenLeaderboard,
-  onOpenAdmin,
   soundEnabled,
   onToggleSound,
   searchQuery,
@@ -112,20 +110,6 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             <Trophy className="w-4 h-4 text-amber-500" />
             <span className="hidden sm:inline font-['Fredoka',sans-serif]">Top Kids</span>
-          </button>
-
-          {/* Admin Page Button */}
-          <button
-            id="open-admin-btn"
-            onClick={() => {
-              soundFX.pop();
-              onOpenAdmin();
-            }}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-100 hover:bg-purple-200 border border-purple-300 text-purple-900 font-bold text-xs transition-colors"
-            title="Open Admin Page with Login Panel to manage platform, custom database tables and games"
-          >
-            <Shield className="w-3.5 h-3.5 text-purple-700" />
-            <span className="hidden sm:inline font-['Fredoka',sans-serif]">Admin Page</span>
           </button>
 
           {/* User Account / Profile */}

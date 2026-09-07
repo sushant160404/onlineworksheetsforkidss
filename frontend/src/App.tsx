@@ -21,7 +21,7 @@ import { ProgressDashboard } from './components/ProgressDashboard';
 import { LeaderboardModal } from './components/LeaderboardModal';
 import { DatabaseStatusModal } from './components/DatabaseStatusModal';
 import { AdminPanel } from './components/AdminPanel';
-import { Heart, Sparkles, ShieldCheck, Database, Award, BookOpen, Star, Shield, ArrowRight, Printer, CheckCircle2 } from 'lucide-react';
+import { Heart, Sparkles, ShieldCheck, Award, BookOpen, Star, Shield, ArrowRight, Printer, CheckCircle2 } from 'lucide-react';
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState<UserProfile | null>(null);
@@ -177,7 +177,6 @@ export default function App() {
         onOpenAuth={() => setIsAuthOpen(true)}
         onOpenProgress={() => setIsProgressOpen(true)}
         onOpenLeaderboard={() => setIsLeaderboardOpen(true)}
-        onOpenAdmin={navigateToAdmin}
         soundEnabled={soundEnabled}
         onToggleSound={handleToggleSound}
         searchQuery={searchQuery}
@@ -457,7 +456,7 @@ export default function App() {
             {/* Resources & Admin */}
             <div className="space-y-2">
               <h4 className="text-xs font-bold uppercase tracking-wider text-gray-900 font-['Fredoka',sans-serif]">
-                Resources & Data
+                Resources & Admin
               </h4>
               <ul className="text-xs text-gray-500 space-y-1.5 font-medium">
                 <li>
@@ -475,26 +474,12 @@ export default function App() {
                     🏆 Student Leaderboard
                   </button>
                 </li>
+                <li>
+                  <button onClick={navigateToAdmin} className="hover:text-purple-700 transition-colors">
+                    🛡️ Admin Gateway
+                  </button>
+                </li>
               </ul>
-
-              <div className="pt-2 flex flex-col gap-1.5">
-                <button
-                  id="footer-db-inspect-btn"
-                  onClick={() => setIsDbStatusOpen(true)}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-purple-700 hover:text-purple-900 bg-purple-50 px-2.5 py-1 rounded-lg border border-purple-200 transition-colors w-fit"
-                >
-                  <Database className="w-3.5 h-3.5 text-purple-600" />
-                  <span>Inspect DB Tables</span>
-                </button>
-                <button
-                  id="footer-admin-btn"
-                  onClick={navigateToAdmin}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-700 hover:text-indigo-900 bg-indigo-50 px-2.5 py-1 rounded-lg border border-indigo-200 transition-colors w-fit"
-                >
-                  <Shield className="w-3.5 h-3.5 text-indigo-600" />
-                  <span>Admin Gateway</span>
-                </button>
-              </div>
             </div>
           </div>
 
