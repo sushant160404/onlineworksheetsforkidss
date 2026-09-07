@@ -177,7 +177,6 @@ export default function App() {
         onOpenAuth={() => setIsAuthOpen(true)}
         onOpenProgress={() => setIsProgressOpen(true)}
         onOpenLeaderboard={() => setIsLeaderboardOpen(true)}
-        onOpenDbStatus={() => setIsDbStatusOpen(true)}
         onOpenAdmin={navigateToAdmin}
         soundEnabled={soundEnabled}
         onToggleSound={handleToggleSound}

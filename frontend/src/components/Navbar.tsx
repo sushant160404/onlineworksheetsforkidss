@@ -2,7 +2,7 @@ import React from 'react';
 import { UserProfile } from '../types';
 import { AvatarIcon } from './AvatarIcon';
 import { soundFX } from '../services/audio';
-import { Sparkles, Trophy, Star, Database, Volume2, VolumeX, User, Search, Flame, Shield, BookOpen, Layers, Printer, HelpCircle, Award } from 'lucide-react';
+import { Sparkles, Trophy, Star, Volume2, VolumeX, User, Search, Flame, Shield, BookOpen, Layers, Printer, HelpCircle, Award } from 'lucide-react';
 
 export type SeoPageView = 'home' | 'grades' | 'subjects' | 'printables' | 'curriculum' | 'faqs';
 
@@ -11,7 +11,6 @@ interface NavbarProps {
   onOpenAuth: () => void;
   onOpenProgress: () => void;
   onOpenLeaderboard: () => void;
-  onOpenDbStatus: () => void;
   onOpenAdmin: () => void;
   soundEnabled: boolean;
   onToggleSound: () => void;
@@ -26,7 +25,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenAuth,
   onOpenProgress,
   onOpenLeaderboard,
-  onOpenDbStatus,
   onOpenAdmin,
   soundEnabled,
   onToggleSound,
@@ -114,20 +112,6 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             <Trophy className="w-4 h-4 text-amber-500" />
             <span className="hidden sm:inline font-['Fredoka',sans-serif]">Top Kids</span>
-          </button>
-
-          {/* Database Inspector Pill */}
-          <button
-            id="open-db-status-btn"
-            onClick={() => {
-              soundFX.pop();
-              onOpenDbStatus();
-            }}
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs transition-colors"
-            title="Inspect MongoDB Atlas & Local Database Collections"
-          >
-            <Database className="w-3.5 h-3.5 text-emerald-600" />
-            <span className="hidden lg:inline font-mono">DB & Tables</span>
           </button>
 
           {/* Admin Page Button */}
