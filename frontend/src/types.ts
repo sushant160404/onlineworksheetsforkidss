@@ -6,6 +6,8 @@ export type Difficulty = 'Easy' | 'Medium' | 'Hard';
 
 export type GameType = 'interactive_worksheet' | 'bubble_pop' | 'word_builder' | 'speed_typing';
 
+export type SeoPageView = 'home' | 'grades' | 'subjects' | 'printables' | 'curriculum' | 'faqs' | 'terms' | 'privacy' | 'writeforus' | 'advertise';
+
 export interface Question {
   id: string;
   prompt: string;

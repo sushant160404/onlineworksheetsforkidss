@@ -114,7 +114,7 @@ export const WorksheetCatalog: React.FC<WorksheetCatalogProps> = ({
             </p>
           </div>
 
-          {/* Quick Search */}
+          {/* Quick Search - Synchronized with Navbar */}
           <div className="relative w-full md:w-72">
             <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-3" />
             <input
@@ -125,6 +125,15 @@ export const WorksheetCatalog: React.FC<WorksheetCatalogProps> = ({
               placeholder="Search topic or skill..."
               className="w-full pl-9 pr-4 py-2 bg-gray-50 hover:bg-purple-50/50 focus:bg-white border border-gray-200 rounded-xl text-xs font-semibold focus:border-purple-500 outline-hidden transition-all"
             />
+            {searchQuery && (
+              <button
+                onClick={() => onSearchChange('')}
+                className="absolute right-3 top-2.5 text-gray-400 hover:text-gray-600 text-lg leading-none"
+                title="Clear search"
+              >
+                ×
+              </button>
+            )}
           </div>
         </div>
 

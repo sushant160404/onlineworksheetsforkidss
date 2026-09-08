@@ -84,8 +84,17 @@ export const Navbar: React.FC<NavbarProps> = ({
                 value={searchQuery}
                 onChange={e => onSearchChange(e.target.value)}
                 placeholder="Search..."
-                className="w-full pl-8 pr-2 py-1.5 bg-purple-50/60 hover:bg-purple-50 focus:bg-white border border-purple-100 rounded-lg text-[10px] sm:text-xs font-medium focus:border-purple-400 focus:ring-2 focus:ring-purple-200 outline-hidden transition-all"
+                className="w-full pl-8 pr-6 py-1.5 bg-purple-50/60 hover:bg-purple-50 focus:bg-white border border-purple-100 rounded-lg text-[10px] sm:text-xs font-medium focus:border-purple-400 focus:ring-2 focus:ring-purple-200 outline-hidden transition-all"
               />
+              {searchQuery && (
+                <button
+                  onClick={() => onSearchChange('')}
+                  className="absolute right-2 top-1.5 text-gray-400 hover:text-gray-600 text-base leading-none"
+                  title="Clear search"
+                >
+                  ×
+                </button>
+              )}
             </div>
           </div>
 
@@ -101,6 +110,15 @@ export const Navbar: React.FC<NavbarProps> = ({
                 placeholder="Search math, phonics, science, typing games..."
                 className="w-full pl-10 pr-4 py-2 bg-purple-50/60 hover:bg-purple-50 focus:bg-white border border-purple-100 rounded-full text-xs sm:text-sm font-medium focus:border-purple-400 focus:ring-2 focus:ring-purple-200 outline-hidden transition-all"
               />
+              {searchQuery && (
+                <button
+                  onClick={() => onSearchChange('')}
+                  className="absolute right-3 top-2.5 text-gray-400 hover:text-gray-600 text-lg leading-none"
+                  title="Clear search"
+                >
+                  ×
+                </button>
+              )}
             </div>
           </div>
 

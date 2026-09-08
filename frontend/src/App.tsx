@@ -11,6 +11,10 @@ import { SubjectWorksheetsPage } from './components/seo/SubjectWorksheetsPage';
 import { PrintablesHubPage } from './components/seo/PrintablesHubPage';
 import { CurriculumGuidePage } from './components/seo/CurriculumGuidePage';
 import { FaqPage } from './components/seo/FaqPage';
+import { TermsConditionsPage } from './components/seo/TermsConditionsPage';
+import { PrivacyPolicyPage } from './components/seo/PrivacyPolicyPage';
+import { WriteForUsPage } from './components/seo/WriteForUsPage';
+import { AdvertiseWithUsPage } from './components/seo/AdvertiseWithUsPage';
 import { InteractiveWorksheetGame } from './components/games/InteractiveWorksheetGame';
 import { BubblePopGame } from './components/games/BubblePopGame';
 import { WordBuilderGame } from './components/games/WordBuilderGame';
@@ -43,7 +47,7 @@ export default function App() {
   const [activeSeoPage, setActiveSeoPage] = useState<SeoPageView>(() => {
     if (typeof window !== 'undefined') {
       const hash = window.location.hash.replace('#', '');
-      if (['grades', 'subjects', 'printables', 'curriculum', 'faqs'].includes(hash)) {
+      if (['grades', 'subjects', 'printables', 'curriculum', 'faqs', 'terms', 'privacy', 'writeforus', 'advertise'].includes(hash)) {
         return hash as SeoPageView;
       }
     }
@@ -59,7 +63,7 @@ export default function App() {
         setCurrentPage('admin');
       } else {
         setCurrentPage('kids');
-        if (['grades', 'subjects', 'printables', 'curriculum', 'faqs'].includes(hash)) {
+        if (['grades', 'subjects', 'printables', 'curriculum', 'faqs', 'terms', 'privacy', 'writeforus', 'advertise'].includes(hash)) {
           setActiveSeoPage(hash as SeoPageView);
         } else {
           setActiveSeoPage('home');
@@ -269,6 +273,38 @@ export default function App() {
           <FaqPage
             onBackToHome={() => navigateToSeoPage('home')}
             onExploreClick={() => navigateToSeoPage('home')}
+          />
+        </main>
+      )}
+
+      {activeSeoPage === 'terms' && (
+        <main className="flex-1">
+          <TermsConditionsPage
+            onBackToHome={() => navigateToSeoPage('home')}
+          />
+        </main>
+      )}
+
+      {activeSeoPage === 'privacy' && (
+        <main className="flex-1">
+          <PrivacyPolicyPage
+            onBackToHome={() => navigateToSeoPage('home')}
+          />
+        </main>
+      )}
+
+      {activeSeoPage === 'writeforus' && (
+        <main className="flex-1">
+          <WriteForUsPage
+            onBackToHome={() => navigateToSeoPage('home')}
+          />
+        </main>
+      )}
+
+      {activeSeoPage === 'advertise' && (
+        <main className="flex-1">
+          <AdvertiseWithUsPage
+            onBackToHome={() => navigateToSeoPage('home')}
           />
         </main>
       )}
@@ -485,6 +521,20 @@ export default function App() {
 
           <div className="pt-8 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 gap-4">
             <p>© 2026 onlineworksheetsforkidss. All educational rights reserved.</p>
+            <div className="flex items-center justify-center gap-6 flex-wrap">
+              <button onClick={() => navigateToSeoPage('terms')} className="hover:text-purple-600 transition-colors">
+                Terms & Conditions
+              </button>
+              <button onClick={() => navigateToSeoPage('privacy')} className="hover:text-purple-600 transition-colors">
+                Privacy Policy
+              </button>
+              <button onClick={() => navigateToSeoPage('writeforus')} className="hover:text-purple-600 transition-colors">
+                Write For Us
+              </button>
+              <button onClick={() => navigateToSeoPage('advertise')} className="hover:text-purple-600 transition-colors">
+                Advertise With Us
+              </button>
+            </div>
             <p className="flex items-center gap-1">
               Crafted with <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" /> for young minds everywhere.
             </p>
