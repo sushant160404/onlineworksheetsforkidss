@@ -50,7 +50,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         >
           <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-2xl bg-white shadow-md shadow-purple-500/20 overflow-hidden border-2 border-purple-200 flex items-center justify-center p-0.5 hover:scale-105 transition-transform flex-shrink-0">
             <img
-              src="/favicon.svg"
+              src="/Logos.png"
               alt="onlineworksheetsforkidss"
               className="w-full h-full object-contain rounded-xl"
               referrerPolicy="no-referrer"

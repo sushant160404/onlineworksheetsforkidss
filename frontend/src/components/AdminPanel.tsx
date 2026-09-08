@@ -450,7 +450,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-xl bg-white flex items-center justify-center font-bold shadow-xs border border-purple-300 overflow-hidden p-0.5">
                   <img
-                    src="/favicon.svg"
+                    src="/Logos.png"
                     alt="onlineworksheetsforkidss logo"
                     className="w-full h-full object-contain rounded-lg"
                     referrerPolicy="no-referrer"
@@ -482,7 +482,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
               <div className="text-center space-y-2">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white shadow-lg shadow-purple-500/20 border-2 border-purple-400/40 p-1 overflow-hidden">
                   <img
-                    src="/favicon.svg"
+                    src="/Logos.png"
                     alt="onlineworksheetsforkidss favicon"
                     className="w-full h-full object-contain rounded-xl"
                     referrerPolicy="no-referrer"
@@ -689,7 +689,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
             <div className="flex items-center gap-2.5">
               <div className="w-9 h-9 rounded-xl bg-white flex items-center justify-center font-bold shadow-md shadow-purple-600/20 border border-purple-300 overflow-hidden p-0.5">
                 <img
-                  src="/favicon.svg"
+                  src="/Logos.png"
                   alt="onlineworksheetsforkidss"
                   className="w-full h-full object-contain rounded-lg"
                   referrerPolicy="no-referrer"

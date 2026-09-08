@@ -401,7 +401,7 @@ export default function App() {
               >
                 <div className="w-10 h-10 rounded-xl bg-white shadow-xs border border-purple-200 overflow-hidden flex items-center justify-center p-0.5">
                   <img
-                    src="/favicon.svg"
+                    src="/Logos.png"
                     alt="onlineworksheetsforkidss icon"
                     className="w-full h-full object-contain rounded-lg"
                     referrerPolicy="no-referrer"
