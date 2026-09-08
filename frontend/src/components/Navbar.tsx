@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { UserProfile } from '../types';
 import { AvatarIcon } from './AvatarIcon';
 import { soundFX } from '../services/audio';
@@ -19,6 +19,19 @@ interface NavbarProps {
   onNavigateSeoPage?: (page: SeoPageView) => void;
 }
 
+const SEARCH_SUGGESTIONS = [
+  'Math games',
+  'Phonics worksheets',
+  'Science activities',
+  'Typing practice',
+  'Addition problems',
+  'Sight words',
+  'Multiplication drills',
+  'Reading comprehension',
+  'Word building',
+  'Bubble pop game'
+];
+
 export const Navbar: React.FC<NavbarProps> = ({
   currentUser,
   onOpenAuth,
@@ -31,6 +44,15 @@ export const Navbar: React.FC<NavbarProps> = ({
   activeSeoPage = 'home',
   onNavigateSeoPage
 }) => {
+  const [showSuggestions, setShowSuggestions] = React.useState(false);
+
+  const filteredSuggestions = React.useMemo(() => {
+    if (!searchQuery.trim()) return [];
+    return SEARCH_SUGGESTIONS.filter(s =>
+      s.toLowerCase().includes(searchQuery.toLowerCase())
+    ).slice(0, 5);
+  }, [searchQuery]);
+
   const handleNavClick = (page: SeoPageView) => {
     soundFX.pop();
     if (onNavigateSeoPage) {
@@ -38,6 +60,11 @@ export const Navbar: React.FC<NavbarProps> = ({
     } else {
       window.location.hash = page === 'home' ? '' : page;
     }
+  };
+
+  const handleSelectSuggestion = (suggestion: string) => {
+    onSearchChange(suggestion);
+    setShowSuggestions(false);
   };
 
   return (
@@ -74,49 +101,91 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Mobile Search Toggle + Right Actions Row */}
         <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 w-full sm:w-auto flex-wrap justify-between">
           {/* Mobile Search Compact */}
-          <div className="md:hidden flex-1 sm:flex-none">
+          <div className="md:hidden flex-1 sm:flex-none relative">
             <div className="relative">
-              <Search className="w-3.5 h-3.5 text-gray-400 absolute left-2.5 top-2" />
+              <Search className="w-3.5 h-3.5 text-gray-400 absolute left-2.5 top-2 z-10" />
               <input
                 id="mobile-search-input"
                 type="text"
                 value={searchQuery}
                 onChange={e => onSearchChange(e.target.value)}
+                onFocus={() => setShowSuggestions(true)}
+                onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
                 placeholder="Search..."
                 className="w-full pl-8 pr-6 py-1.5 bg-purple-50/60 hover:bg-purple-50 focus:bg-white border border-purple-100 rounded-lg text-[10px] sm:text-xs font-medium focus:border-purple-400 focus:ring-2 focus:ring-purple-200 outline-hidden transition-all"
               />
               {searchQuery && (
                 <button
-                  onClick={() => onSearchChange('')}
-                  className="absolute right-2 top-1.5 text-gray-400 hover:text-gray-600 text-base leading-none"
+                  onClick={() => {
+                    onSearchChange('');
+                    setShowSuggestions(false);
+                  }}
+                  className="absolute right-2 top-1.5 text-gray-400 hover:text-gray-600 text-base leading-none z-10"
                   title="Clear search"
                 >
                   ×
                 </button>
               )}
+              
+              {/* Mobile Suggestions Dropdown */}
+              {showSuggestions && filteredSuggestions.length > 0 && (
+                <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-purple-200 rounded-lg shadow-lg z-50">
+                  {filteredSuggestions.map((suggestion, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => handleSelectSuggestion(suggestion)}
+                      className="w-full text-left px-3 py-1.5 text-[10px] font-medium text-gray-700 hover:bg-purple-50 first:rounded-t-lg last:rounded-b-lg transition-colors flex items-center gap-1.5"
+                    >
+                      <Search className="w-2.5 h-2.5 text-gray-400" />
+                      {suggestion}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 
           {/* Desktop Search Bar */}
-          <div className="hidden md:flex flex-1 lg:flex-none lg:max-w-md mx-2">
+          <div className="hidden md:flex flex-1 lg:flex-none lg:max-w-md mx-2 relative">
             <div className="relative w-full">
-              <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-3" />
+              <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-3 z-10" />
               <input
                 id="global-search-input"
                 type="text"
                 value={searchQuery}
                 onChange={e => onSearchChange(e.target.value)}
+                onFocus={() => setShowSuggestions(true)}
+                onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
                 placeholder="Search math, phonics, science, typing games..."
                 className="w-full pl-10 pr-4 py-2 bg-purple-50/60 hover:bg-purple-50 focus:bg-white border border-purple-100 rounded-full text-xs sm:text-sm font-medium focus:border-purple-400 focus:ring-2 focus:ring-purple-200 outline-hidden transition-all"
               />
               {searchQuery && (
                 <button
-                  onClick={() => onSearchChange('')}
-                  className="absolute right-3 top-2.5 text-gray-400 hover:text-gray-600 text-lg leading-none"
+                  onClick={() => {
+                    onSearchChange('');
+                    setShowSuggestions(false);
+                  }}
+                  className="absolute right-3 top-2.5 text-gray-400 hover:text-gray-600 text-lg leading-none z-10"
                   title="Clear search"
                 >
                   ×
                 </button>
+              )}
+              
+              {/* Desktop Suggestions Dropdown */}
+              {showSuggestions && filteredSuggestions.length > 0 && (
+                <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-purple-200 rounded-2xl shadow-lg z-50">
+                  {filteredSuggestions.map((suggestion, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => handleSelectSuggestion(suggestion)}
+                      className="w-full text-left px-4 py-2 text-xs font-medium text-gray-700 hover:bg-purple-50 first:rounded-t-2xl last:rounded-b-2xl transition-colors flex items-center gap-2"
+                    >
+                      <Search className="w-3 h-3 text-gray-400" />
+                      {suggestion}
+                    </button>
+                  ))}
+                </div>
               )}
             </div>
           </div>
