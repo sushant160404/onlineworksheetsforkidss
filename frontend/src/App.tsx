@@ -27,6 +27,8 @@ import { DatabaseStatusModal } from './components/DatabaseStatusModal';
 import { AdminPanel } from './components/AdminPanel';
 import { Heart, Sparkles, ShieldCheck, Award, BookOpen, Star, Shield, ArrowRight, Printer, CheckCircle2 } from 'lucide-react';
 
+import { Analytics } from '@vercel/analytics/react';
+
 export default function App() {
   const [currentUser, setCurrentUser] = useState<UserProfile | null>(null);
   const [selectedGrade, setSelectedGrade] = useState<GradeLevel | 'All'>('All');
@@ -175,6 +177,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F8F7FF] text-[#2D2A4A] selection:bg-purple-200">
+      <Analytics />
       {/* Top Navigation with SEO Subnav */}
       <Navbar
         currentUser={currentUser}
