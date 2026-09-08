@@ -41,50 +41,50 @@ export default function App() {
   const [isLeaderboardOpen, setIsLeaderboardOpen] = useState(false);
   const [isDbStatusOpen, setIsDbStatusOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState<'kids' | 'admin'>(() => {
-    if (typeof window !== 'undefined' && (window.location.hash === '#admin' || window.location.pathname === '/admin')) {
+    if (typeof window !== 'undefined' && window.location.pathname === '/admin') {
       return 'admin';
     }
     return 'kids';
   });
   const [activeSeoPage, setActiveSeoPage] = useState<SeoPageView>(() => {
     if (typeof window !== 'undefined') {
-      const hash = window.location.hash.replace('#', '');
-      if (['grades', 'subjects', 'printables', 'curriculum', 'faqs', 'terms', 'privacy', 'writeforus', 'advertise'].includes(hash)) {
-        return hash as SeoPageView;
+      const pathname = window.location.pathname.replace('/', '');
+      if (['grades', 'subjects', 'printables', 'curriculum', 'faqs', 'terms', 'privacy', 'writeforus', 'advertise'].includes(pathname)) {
+        return pathname as SeoPageView;
       }
     }
     return 'home';
   });
   const [soundEnabled, setSoundEnabled] = useState(true);
 
-  // Sync hash routing for admin and SEO pages
+  // Sync pathname-based routing for admin and SEO pages
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.replace('#', '');
-      if (hash === 'admin') {
+    const handlePopState = () => {
+      const pathname = window.location.pathname.replace('/', '');
+      if (pathname === 'admin') {
         setCurrentPage('admin');
       } else {
         setCurrentPage('kids');
-        if (['grades', 'subjects', 'printables', 'curriculum', 'faqs', 'terms', 'privacy', 'writeforus', 'advertise'].includes(hash)) {
-          setActiveSeoPage(hash as SeoPageView);
+        if (['grades', 'subjects', 'printables', 'curriculum', 'faqs', 'terms', 'privacy', 'writeforus', 'advertise'].includes(pathname)) {
+          setActiveSeoPage(pathname as SeoPageView);
         } else {
           setActiveSeoPage('home');
         }
       }
     };
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
   const navigateToAdmin = () => {
-    window.location.hash = '#admin';
+    window.history.pushState(null, '', '/admin');
     setCurrentPage('admin');
     window.scrollTo({ top: 0, behavior: 'smooth' });
     soundFX.pop();
   };
 
   const navigateToKids = () => {
-    window.location.hash = '';
+    window.history.pushState(null, '', '/');
     setCurrentPage('kids');
     setActiveSeoPage('home');
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -92,7 +92,8 @@ export default function App() {
   };
 
   const navigateToSeoPage = (page: SeoPageView) => {
-    window.location.hash = page === 'home' ? '' : page;
+    const path = page === 'home' ? '/' : `/${page}`;
+    window.history.pushState(null, '', path);
     setCurrentPage('kids');
     setActiveSeoPage(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
