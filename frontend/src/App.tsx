@@ -396,10 +396,10 @@ export default function App() {
             {/* Brand column */}
             <div className="space-y-4 lg:col-span-2">
               <div 
-                className="flex items-center gap-2.5 cursor-pointer"
+                className="flex items-center gap-2 sm:gap-3 cursor-pointer"
                 onClick={() => navigateToSeoPage('home')}
               >
-                <div className="w-10 h-10 rounded-xl bg-white shadow-xs border border-purple-200 overflow-hidden flex items-center justify-center p-0.5">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-white shadow-xs border border-purple-200 overflow-hidden flex items-center justify-center p-0.5 flex-shrink-0">
                   <img
                     src="/Logos.png"
                     alt="onlineworksheetsforkidss icon"
@@ -407,9 +407,12 @@ export default function App() {
                     referrerPolicy="no-referrer"
                   />
                 </div>
-                <span className="text-xl font-black font-['Fredoka',sans-serif] text-gray-900">
-                  onlineworksheets<span className="text-purple-600">forkidss</span>
-                </span>
+                <div className="min-w-0">
+                  <span className="text-sm sm:text-lg font-black font-['Fredoka',sans-serif] text-gray-900 block leading-tight">
+                    onlineworksheets<span className="text-purple-600">forkidss</span>
+                  </span>
+                  <p className="text-[10px] sm:text-xs text-gray-400 font-medium">1000+ Games</p>
+                </div>
               </div>
               <p className="text-xs text-gray-500 leading-relaxed max-w-sm">
                 Empowering children from Pre-K to 5th Grade with over 1,000+ interactive worksheet games, automated grading, audio feedback, and progress tracking. Free printable PDFs for classroom and homeschooling parents.
