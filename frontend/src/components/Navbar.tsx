@@ -58,10 +58,9 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
           <div className="min-w-0 flex-1">
             <div className="flex items-center gap-1 flex-wrap">
-              <span className="text-sm sm:text-lg md:text-2xl font-black tracking-tight text-[#2D2A4A] font-['Fredoka',sans-serif] truncate">
-                online<span className="hidden xs:inline">worksheets</span><span className="hidden sm:inline">forki</span>ds<span className="text-purple-600 hidden sm:inline">s</span>
+              <span className="text-sm sm:text-base md:text-lg lg:text-xl font-black tracking-tight text-[#2D2A4A] font-['Fredoka',sans-serif] whitespace-nowrap">
+                onlineworksheets<span className="text-purple-600">forkidss</span>
               </span>
-              <span className="text-purple-600 sm:hidden">forkidss</span>
               <span className="bg-amber-100 text-amber-800 text-[8px] sm:text-[10px] font-black px-1 sm:px-1.5 py-0.5 rounded-md uppercase tracking-wider flex-shrink-0">
                 1000+ Games
               </span>
