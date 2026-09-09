@@ -16,6 +16,17 @@ export default defineConfig(({ mode }) => {
         '@': path.resolve(__dirname, '.'),
       },
     },
+    build: {
+      // Generate manifest for SSR integration
+      manifest: true,
+      rollupOptions: {
+        output: {
+          entryFileNames: 'assets/[name]-[hash].js',
+          chunkFileNames: 'assets/chunk-[name]-[hash].js',
+          assetFileNames: 'assets/[name]-[hash][extname]',
+        },
+      },
+    },
     server: {
       port: 5173,
       hmr: process.env.DISABLE_HMR !== 'true',
