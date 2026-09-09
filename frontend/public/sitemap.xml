@@ -5,7 +5,7 @@
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <!-- Homepage -->
   <url>
-    <loc>https://onlineworksheetsforkidss.com/</loc>
+    <loc>https://onlineworksheetsforkidss.vercel.app/</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -13,43 +13,43 @@
 
   <!-- Grades Hub & Individual Grade Pages -->
   <url>
-    <loc>https://onlineworksheetsforkidss.com/grades</loc>
+    <loc>https://onlineworksheetsforkidss.vercel.app/grades</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://onlineworksheetsforkidss.com/grade-kindergarten</loc>
+    <loc>https://onlineworksheetsforkidss.vercel.app/grade-kindergarten</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://onlineworksheetsforkidss.com/grade-1st</loc>
+    <loc>https://onlineworksheetsforkidss.vercel.app/grade-1st</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://onlineworksheetsforkidss.com/grade-2nd</loc>
+    <loc>https://onlineworksheetsforkidss.vercel.app/grade-2nd</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://onlineworksheetsforkidss.com/grade-3rd</loc>
+    <loc>https://onlineworksheetsforkidss.vercel.app/grade-3rd</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://onlineworksheetsforkidss.com/grade-4th</loc>
+    <loc>https://onlineworksheetsforkidss.vercel.app/grade-4th</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://onlineworksheetsforkidss.com/grade-5th</loc>
+    <loc>https://onlineworksheetsforkidss.vercel.app/grade-5th</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -57,31 +57,31 @@
 
   <!-- Subject Hubs -->
   <url>
-    <loc>https://onlineworksheetsforkidss.com/subjects</loc>
+    <loc>https://onlineworksheetsforkidss.vercel.app/subjects</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://onlineworksheetsforkidss.com/subject-math</loc>
+    <loc>https://onlineworksheetsforkidss.vercel.app/subject-math</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://onlineworksheetsforkidss.com/subject-phonics</loc>
+    <loc>https://onlineworksheetsforkidss.vercel.app/subject-phonics</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://onlineworksheetsforkidss.com/subject-science</loc>
+    <loc>https://onlineworksheetsforkidss.vercel.app/subject-science</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://onlineworksheetsforkidss.com/subject-typing</loc>
+    <loc>https://onlineworksheetsforkidss.vercel.app/subject-typing</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -89,19 +89,19 @@
 
   <!-- Educational Resources & SEO Content Pages -->
   <url>
-    <loc>https://onlineworksheetsforkidss.com/printables</loc>
+    <loc>https://onlineworksheetsforkidss.vercel.app/printables</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://onlineworksheetsforkidss.com/curriculum</loc>
+    <loc>https://onlineworksheetsforkidss.vercel.app/curriculum</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://onlineworksheetsforkidss.com/faqs</loc>
+    <loc>https://onlineworksheetsforkidss.vercel.app/faqs</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
